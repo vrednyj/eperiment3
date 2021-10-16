@@ -24,6 +24,13 @@ after_success:
   #- git push origin-master
   #- git push --set-upstream origin-master master
   -git push origin-master HEAD:master
+#<<<<<<< HEAD
+#=======
+#
+#
+#
+
+#>>>>>>> 74cde4010b205588c01f6fda0013cc75d00cf1a4
 #  - git checkout -b builds
 #  - git add .
 #  - git status
