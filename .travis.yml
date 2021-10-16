@@ -16,7 +16,7 @@ after_success:
   - git config --global user.name "vrednyj"
   #- git remote add origin-master https://${AUTOBUILD_TOKEN}@github.com/vrednyj/eperiment3.git > /dev/null 2>&1
   #- git remote add origin-master https://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@github.com/vrednyj/experiment_2.git > /dev/null 2>&1
-  - git remote add origin-master https://vrednyj:lfO0Mfo_-76_ygkjpCvL9A@github.com/vrednyj/eperiment3.git
+  - git remote add origin-master https://vrednyj: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@github.com/vrednyj/eperiment3.git
   - git add .
   - git status
   - git commit --message "Snapshot autobuild N.$TRAVIS_BUILD_NUMBER [ci skip]"
