@@ -17,5 +17,7 @@ after_success:
   - git remote add origin-master https://${AUTOBUILD_TOKEN}@github.com/vrednyj/experiment_2.git > /dev/null 2>&1
   - git add .
   - git commit --message "Snapshot autobuild N.$TRAVIS_BUILD_NUMBER [ci skip]"
+  - git tag 0.1234
+  - git push origin --tags
   - git push origin-master HEAD:master
 
