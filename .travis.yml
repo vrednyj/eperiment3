@@ -14,11 +14,14 @@ script: pyinstaller --onefile main.py
 after_success:
   - git config --global user.email "L00169827@student.lyit.ie"
   - git config --global user.name "vrednyj"
-  - git remote add origin-master https://${AUTOBUILD_TOKEN}@github.com/vrednyj/eperiment3.git > /dev/null 2>&1
-  #- git remote add origin-master https://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@github.com/vrednyj/experiment_2.git > /dev/null 2>&1
+  #- git remote add origin-master https://${AUTOBUILD_TOKEN}@github.com/vrednyj/eperiment3.git > /dev/null 2>&1
+  - git remote add origin-master https://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@github.com/vrednyj/experiment_2.git > /dev/null 2>&1
+    #https://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@github.com/vrednyj/eperiment3.git
   - git add .
   - git commit --message "Snapshot autobuild N.$TRAVIS_BUILD_NUMBER [ci skip]"
-  - git tag 0.1234
-  - git push origin-master --tags
+  - git status
+  #- git tag 0.1234
+  #- git push origin-master --tags
   - git push origin-master HEAD:master
+  - git status
 
