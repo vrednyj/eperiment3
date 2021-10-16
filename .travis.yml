@@ -10,57 +10,12 @@ jobs:
         - python -m pip install pyinstaller
       env: PATH=/c/Python38:/c/Python38/Scripts:$PATH
 install: pip3 install --upgrade pip  # all three OSes agree about 'pip3'
-# 'python' points to Python 2.7 on macOS but points to Python 3.8 on Linux and Windows
-# 'python3' is a 'command not found' error on Windows but 'py' works on Windows only
 script: pyinstaller --onefile main.py
 after_success:
   - git config --global user.email "L00169827@student.lyit.ie"
   - git config --global user.name "vrednyj"
   - git remote add origin-master https://${AUTOBUILD_TOKEN}@github.com/vrednyj/experiment_2.git > /dev/null 2>&1
   - git add .
-  # We don’t want to run a build for a this commit in order to avoid circular builds:
-  # add [ci skip] to the git commit message
   - git commit --message "Snapshot autobuild N.$TRAVIS_BUILD_NUMBER [ci skip]"
-  #- git push origin-master
-  #- git push --set-upstream origin-master master
   -git push origin-master HEAD:master
-#<<<<<<< HEAD
-#=======
-#
-#
-#
-
-#>>>>>>> 74cde4010b205588c01f6fda0013cc75d00cf1a4
-#  - git checkout -b builds
-#  - git add .
-#  - git status
-#  - git commit --message "Builds again     "
-#  - git status
-#  - git remote add builds_origin https://https://github.com/vrednyj/experiment_2.git
-#  - git push https://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@github.com//vrednyj/experiment_2.git
-#  - git push https://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@github.com//vrednyj/experiment_2.git
-# enother token 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
-#  - git status
-  #- git push builds_origin builds:builds
-#  - git push https://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@github.com//vrednyj/experiment_2.git builds:builds
-#  - git status
-#  - git push --set-upstream builds_origin builds
-#  - username: vrednyj
-#  - password: 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
-#git push https://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@github.com//vrednyj/experiment_2.git
-#before_deploy:
-# Set up git user name and tag this commit
-#  - git config --local user.name "L00169827@student.lyit.ie"
-#  - git config --local user.email "vrednyj"
-#  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
-#  - git tag $TRAVIS_TAG
-#deploy:
-#  provider: releases
-#  api_key: zY6FzK4VLH2XgVjjsXxB
-#  file_glob: true
-#  file: build/**/*
-#  skip_cleanup: true
-#  on:
-#    tags: true
-#
 
